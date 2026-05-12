@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enseignant – Bulletins Étudiant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div id="page-teacher" class="page active">
+    <div class="topbar">
+      <span class="topbar-title">Bulletins étudiant</span>
+      <div class="topbar-right">
+        <img src="ensias.png" alt="ENSIAS" class="topbar-logo" />
+      </div>
+    </div>
+    <div class="welcome-bar">
+      <span id="teacher-welcome">Bienvenue Pr. …</span>
+      <button class="btn-deconnexion" onclick="logout()">Déconnexion</button>
+    </div>
+    <div class="content-area">
+      <div class="card">
+        <h2 class="card-title">Saisie des notes</h2>
+        <div class="filters-row">
+          <div class="filter-group">
+            <label>Semestre</label>
+            <select id="t-semestre">
+              <option value="">Semestre</option>
+              <option>S3 2025/2026</option>
+              <option>S4 2025/2026</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Matière</label>
+            <select id="t-matiere">
+              <option value="">Matière</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Classe</label>
+            <select id="t-classe">
+              <option value="">Classe</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label>Groupe</label>
+            <select id="t-groupe">
+              <option value="">Groupe</option>
+              <option>Groupe A</option>
+              <option>Groupe B</option>
+            </select>
+          </div>
+        </div>
+        <div class="filter-action">
+          <button class="btn-select" onclick="loadGradeTable()">Sélectionner</button>
+        </div>
+        <div class="table-wrap">
+          <table id="grade-table">
+            <thead>
+              <tr>
+                <th class="col-etudiant">Etudiant</th>
+                <th>TPs</th>
+                <th>Projet</th>
+                <th>Contrôle 1</th>
+                <th>Contrôle 2</th>
+                <th><strong>Moyenne</strong></th>
+              </tr>
+            </thead>
+            <tbody id="grade-tbody"></tbody>
+          </table>
+        </div>
+        <div id="grades-msg" class="alert" style="display:none"></div>
+        <div class="bottom-action">
+          <button class="btn-select" onclick="saveGrades()">Enregistrer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

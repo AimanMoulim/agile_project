@@ -1,0 +1,89 @@
+{
+  "teachers": [
+    {
+      "nom": "MCHARFI",
+      "prenom": "Ahmed",
+      "email": "a.mcharfi@ensias.um5.ac.ma"
+    },
+    {
+      "nom": "BENALI",
+      "prenom": "Sara",
+      "email": "s.benali@ensias.um5.ac.ma"
+    }
+  ],
+  "students": [
+    {
+      "matricule": "INS001",
+      "nom": "MOULIM",
+      "prenom": "Aiman",
+      "email": "a.moulim@ensias.um5.ac.ma"
+    },
+    {
+      "matricule": "INS002",
+      "nom": "Marfouk",
+      "prenom": "Hamza",
+      "email": "h.marfouk@ensias.um5.ac.ma"
+    },
+    {
+      "matricule": "INS003",
+      "nom": "Outafraout",
+      "prenom": "khalid",
+      "email": "k.outafraout@ensias.um5.ac.ma"
+    },
+    {
+      "matricule": "INS004",
+      "nom": "Er-ramdany",
+      "prenom": "Ismail",
+      "email": "i.erramdany@ensias.um5.ac.ma"
+    }
+  ],
+  "classes": [
+    {
+      "annee": "2025-2026",
+      "niveau": "2ème année",
+      "specialite": "CSCMC",
+      "groupes": "1"
+    }
+  ],
+  "subjects": [
+    {
+      "code": "AGILE",
+      "intitule": "Agile"
+    },
+    {
+      "code": "MS",
+      "intitule": "Mobile Security"
+    },
+    {
+      "code": "WS",
+      "intitule": "Web Service"
+    }
+  ],
+  "grades": {
+    "S3 2025/2026": {
+      "INS001": {
+        "WS": {
+          "tps": 12,
+          "projet": null,
+          "cc1": null,
+          "cc2": null,
+          "moy": null
+        },
+        "AGILE": {
+          "tps": 1,
+          "projet": null,
+          "cc1": null,
+          "cc2": null,
+          "moy": null
+        },
+        "MS": {
+          "tps": 1,
+          "projet": null,
+          "cc1": null,
+          "cc2": null,
+          "moy": null
+        }
+      }
+    }
+  }
+}

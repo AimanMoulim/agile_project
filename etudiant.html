@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Étudiant – Bulletins Étudiant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div id="page-student" class="page active">
+    <div class="topbar">
+      <span class="topbar-title">Bulletins étudiant</span>
+      <div class="topbar-right">
+        <img src="ensias.png" alt="ENSIAS" class="topbar-logo" />
+      </div>
+    </div>
+    <div class="welcome-bar">
+      <span id="student-welcome">Bonjour …</span>
+      <button class="btn-deconnexion" onclick="logout()">Déconnexion</button>
+    </div>
+    <div class="content-area">
+      <div class="card">
+        <h2 class="card-title">Bulletin de notes</h2>
+        <div class="filters-row filters-row-sm">
+          <div class="filter-group">
+            <select id="s-semestre">
+              <option value="">Semestre</option>
+              <option>S3 2025/2026</option>
+              <option>S4 2025/2026</option>
+            </select>
+          </div>
+          <button class="btn-select" onclick="loadBulletin()">Sélectionner</button>
+        </div>
+        <div class="table-wrap">
+          <table id="bulletin-table">
+            <thead>
+              <tr>
+                <th class="col-mat">Matière</th>
+                <th>TPs</th>
+                <th class="col-pct">%</th>
+                <th>Projet</th>
+                <th class="col-pct">%</th>
+                <th>Contrôle 1</th>
+                <th class="col-pct">%</th>
+                <th>Contrôle 2</th>
+                <th class="col-pct">%</th>
+                <th>Moyenne</th>
+              </tr>
+            </thead>
+            <tbody id="bulletin-tbody"></tbody>
+          </table>
+        </div>
+        <div class="moyenne-footer">
+          <span>Moyenne du semestre</span>
+          <strong id="moy-gen">/ 20</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

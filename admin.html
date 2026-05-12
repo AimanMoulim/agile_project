@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin – Bulletins Étudiant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div id="page-admin" class="page active">
+    <div class="topbar">
+      <span class="topbar-title">Bulletins étudiant</span>
+      <div class="topbar-right">
+        <img src="ensias.png" alt="ENSIAS" class="topbar-logo" />
+      </div>
+    </div>
+    <div class="welcome-bar">
+      <span>Espace Administration</span>
+      <button class="btn-deconnexion" onclick="logout()">Déconnexion</button>
+    </div>
+    <div class="content-area admin-layout">
+      <aside class="admin-sidebar">
+        <nav>
+          <a class="sidebar-link active" onclick="showAdminTab('teachers',this)">Enseignants</a>
+          <a class="sidebar-link" onclick="showAdminTab('students',this)">Étudiants</a>
+          <a class="sidebar-link" onclick="showAdminTab('classes',this)">Classes</a>
+          <a class="sidebar-link" onclick="showAdminTab('subjects',this)">Matières</a>
+        </nav>
+      </aside>
+
+      <div class="admin-main">
+        <div id="admin-teachers" class="admin-tab">
+          <div class="card">
+            <h2 class="card-title">Référentiel des Enseignants</h2>
+            <div class="toolbar">
+              <button class="btn-add" onclick="addAdminRow('teachers')">+ Ajouter</button>
+              <button class="btn-select" onclick="saveAdminTable('teachers')">Enregistrer</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-teachers"></tbody>
+              </table>
+            </div>
+            <div id="msg-teachers" class="alert" style="display:none"></div>
+          </div>
+        </div>
+
+        <div id="admin-students" class="admin-tab" style="display:none">
+          <div class="card">
+            <h2 class="card-title">Référentiel des Étudiants</h2>
+            <div class="toolbar">
+              <button class="btn-add" onclick="addAdminRow('students')">+ Ajouter</button>
+              <button class="btn-select" onclick="saveAdminTable('students')">Enregistrer</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Matricule</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Email</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-students"></tbody>
+              </table>
+            </div>
+            <div id="msg-students" class="alert" style="display:none"></div>
+          </div>
+        </div>
+
+        <div id="admin-classes" class="admin-tab" style="display:none">
+          <div class="card">
+            <h2 class="card-title">Référentiel des Classes</h2>
+            <div class="toolbar">
+              <button class="btn-add" onclick="addAdminRow('classes')">+ Ajouter</button>
+              <button class="btn-select" onclick="saveAdminTable('classes')">Enregistrer</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Année</th>
+                    <th>Niveau</th>
+                    <th>Spécialité</th>
+                    <th>Groupes</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-classes"></tbody>
+              </table>
+            </div>
+            <div id="msg-classes" class="alert" style="display:none"></div>
+          </div>
+        </div>
+
+        <div id="admin-subjects" class="admin-tab" style="display:none">
+          <div class="card">
+            <h2 class="card-title">Référentiel des Matières</h2>
+            <div class="toolbar">
+              <button class="btn-add" onclick="addAdminRow('subjects')">+ Ajouter</button>
+              <button class="btn-select" onclick="saveAdminTable('subjects')">Enregistrer</button>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Code</th>
+                    <th>Intitulé</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="tbody-subjects"></tbody>
+              </table>
+            </div>
+            <div id="msg-subjects" class="alert" style="display:none"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
