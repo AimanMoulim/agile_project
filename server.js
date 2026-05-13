@@ -34,7 +34,8 @@ const defaultStore = {
     { code: 'WS', intitule: 'Web Service' }
   ],
   grades: {
-    'S3 2025/2026': {}
+    'S3 2025/2026': {},
+    'S4 2025/2026': {}
   }
 };
 
@@ -57,16 +58,16 @@ function saveStore(store) {
 app.post('/api/login', (req, res) => {
   const { email, password } = req.body;
   const store = getStore();
-  
+
   // Simulation de la base d'utilisateurs (basée sur le store + admin fixe)
   const users = {
     'admin@ensias.um5.ac.ma': { role: 'admin', password: 'admin123', nom: 'Administrateur' }
   };
-  
+
   store.teachers.forEach(t => {
     users[t.email] = { role: 'teacher', password: 'teacher123', nom: 'Pr. ' + t.nom };
   });
-  
+
   store.students.forEach(s => {
     users[s.email] = { role: 'student', password: 'student123', nom: s.nom + ' ' + s.prenom, matricule: s.matricule };
   });

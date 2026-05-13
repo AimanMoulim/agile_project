@@ -9,6 +9,11 @@
       "nom": "BENALI",
       "prenom": "Sara",
       "email": "s.benali@ensias.um5.ac.ma"
+    },
+    {
+      "nom": "hamza",
+      "prenom": "",
+      "email": ""
     }
   ],
   "students": [
@@ -93,6 +98,31 @@
           "cc1": null,
           "cc2": null,
           "moy": null
+        },
+        "WS": {
+          "tps": 16,
+          "projet": 17,
+          "cc1": 18,
+          "cc2": 16,
+          "moy": 16.8
+        }
+      },
+      "INS002": {
+        "WS": {
+          "tps": 16,
+          "projet": 16,
+          "cc1": 17,
+          "cc2": 18,
+          "moy": 16.75
+        }
+      },
+      "INS003": {
+        "WS": {
+          "tps": 16,
+          "projet": 17,
+          "cc1": 17,
+          "cc2": 17,
+          "moy": 16.8
         }
       }
     }

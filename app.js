@@ -197,7 +197,7 @@ async function saveGrades() {
     if (!store.grades[sem][mat]) store.grades[sem][mat] = {};
     store.grades[sem][mat][matCode] = { tps: vals[0], projet: vals[1], cc1: vals[2], cc2: vals[3], moy };
   });
-  
+
   await updateStore();
   flash('grades-msg', 'Enregistrement effectué !', 'success');
 }
@@ -217,9 +217,9 @@ function loadBulletin() {
   const tbody = document.getElementById('bulletin-tbody');
   if (!sem) { tbody.innerHTML = ''; return; }
 
-  const semData = store.grades[sem]?.[mat];
+  const semData = store.grades ? store.grades[sem]?.[mat] : null;
   tbody.innerHTML = '';
-  if (!semData) { 
+  if (!semData) {
     tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;padding:16px">Aucune note.</td></tr>';
     document.getElementById('moy-gen').textContent = '/ 20';
     return;
@@ -229,11 +229,31 @@ function loadBulletin() {
   Object.entries(semData).forEach(([code, g]) => {
     const subj = store.subjects.find(s => s.code === code);
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td><strong>${subj ? subj.intitule : code}</strong></td><td><strong>${g.tps}</strong></td><td class="col-pct">20</td><td><strong>${g.projet}</strong></td><td class="col-pct">30</td><td><strong>${g.cc1}</strong></td><td class="col-pct">25</td><td><strong>${g.cc2}</strong></td><td class="col-pct">25</td><td>${g.moy.toFixed(1)}</td>`;
+
+    const fmt = (v) => (v !== null && v !== undefined && v !== '') ? `<strong>${v}</strong>` : '-';
+    const moyDisplay = (g.moy !== null && g.moy !== undefined) ? g.moy.toFixed(1) : '-';
+
+    tr.innerHTML = `
+      <td><strong>${subj ? subj.intitule : code}</strong></td>
+      <td>${fmt(g.tps)}</td><td class="col-pct">20</td>
+      <td>${fmt(g.projet)}</td><td class="col-pct">30</td>
+      <td>${fmt(g.cc1)}</td><td class="col-pct">25</td>
+      <td>${fmt(g.cc2)}</td><td class="col-pct">25</td>
+      <td>${moyDisplay}</td>
+    `;
     tbody.appendChild(tr);
-    total += g.moy; count++;
+
+    if (g.moy !== null && g.moy !== undefined) {
+      total += g.moy;
+      count++;
+    }
   });
-  document.getElementById('moy-gen').textContent = (total / count).toFixed(1) + ' / 20';
+
+  if (count > 0) {
+    document.getElementById('moy-gen').textContent = (total / count).toFixed(1) + ' / 20';
+  } else {
+    document.getElementById('moy-gen').textContent = '/ 20';
+  }
 }
 
 // ═══════════════════════════════════════════════
