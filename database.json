@@ -84,6 +84,17 @@
           "moy": null
         }
       }
+    },
+    "S4 2025/2026": {
+      "INS001": {
+        "AGILE": {
+          "tps": 34,
+          "projet": null,
+          "cc1": null,
+          "cc2": null,
+          "moy": null
+        }
+      }
     }
   }
 }
